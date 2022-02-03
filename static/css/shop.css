@@ -62,6 +62,7 @@
     font-weight: 800 !important;
 }
 
-.shop-page .product:hover .compare-wishlist {
-    bottom: 40px;
+.shop-page .product:hover .compare-wishlist,
+.featured-product .product:hover .compare-wishlist {
+    bottom: 20px;
 }

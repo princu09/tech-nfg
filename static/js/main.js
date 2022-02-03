@@ -3,7 +3,6 @@ function changeImg(smallImg) {
     fullImg.src = smallImg.src;
 }
 $(document).ready(function() {
-
     rate = []
     rating = $('.rating').text();
     for (let i = 0; i < rating; i++) {
