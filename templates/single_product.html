@@ -1,0 +1,258 @@
+{% extends './include/basic.html' %}
+{% load static %}
+{% load social_share %}
+
+{% block body %}
+<div class="container single-product border-bottom pb-5">
+    <nav aria-label="breadcrumb m-0 p-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
+            <li class="breadcrumb-item"><a href="#">{{prod.category}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{prod.title}}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6 pt-3 border d-flex justify-content-center align-items-center product"
+            style="width: 635px; height:635px;border-radius:5px">
+            <div class="main-img-prod d-flex flex-column justify-content-center align-items-center">
+                <div class="image-gallery-big">
+                    <img id="imageBox" src="/media/{{prod.images1}}" alt="">
+                </div>
+                <div class="d-flex pt-5 justify-content-center">
+                    <img src="/media/{{prod.images1}}" class="image-gallery-small" onclick="changeImg(this)">
+                    <img src="/media/{{prod.images2}}" class="image-gallery-small" onclick="changeImg(this)">
+                    <img src="/media/{{prod.images3}}" class="image-gallery-small" onclick="changeImg(this)">
+                    <img src="/media/{{prod.images4}}" style="width:auto;height:120px" onclick="changeImg(this)">
+                    <img src="/media/{{prod.images5}}" class="image-gallery-small" onclick="changeImg(this)">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-4">
+            <p class="h4 font-weight-bold">
+                {{prod.title}}
+            </p>
+            <p class="star t-12">
+                <p class="rating">{{prod.rating}}</p>
+            </p>
+            <p class="t-18 font-weight-bold text-warning">₹ {{prod.price}} /-</p>
+            <p class="t-14 text-secondary">{{prod.shortDesc}}</p>
+
+            {% if user.is_authenticated %}
+            <div class="container m-0 p-0 d-flex">
+                <input class="itemLen" type="number" value="0" min="0" name="" id=""
+                    style="max-width:50px;text-align:center">
+
+                <button class="ml-4 btn prod-btn btn-cart" data-product="{{prod.id}}"><i
+                        class="far fa-shopping-cart"></i> Add to
+                    Cart</button>
+
+                {% if prod.id in orders_id %}
+                <button class="btn prod-btn btn-whishlist whishlist-btn" disabled><i class="far fa-heart"></i> Already
+                    in Wishlist</button>
+                {% else %}
+                <button class=" btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
+                        class="far fa-heart"></i> Wishlist</button>
+                {% endif %}
+                <button class="btn prod-btn btn-compare d-flex align-items-center">
+                    {% post_to_whatsapp "" "<i class='far fa-reply-all'></i> Whatsapp" %}
+                </button>
+            </div>
+            {% else %}
+            <div class="container m-0 p-0 d-flex">
+                <button class="btn prod-btn btn-cart" data-product="{{prod.id}}" disabled><i
+                        class="far fa-shopping-cart"></i> Add to
+                    Cart</button>
+
+                <button disabled class="btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
+                        class="far fa-heart"></i> Wishlist</button>
+                <button class="btn prod-btn btn-compare d-flex align-items-center">
+                    {% post_to_whatsapp "" "<i class='far fa-reply-all'></i> Whatsapp" %}
+                </button>
+            </div>
+            {% endif %}
+            <hr>
+            <div class="data">
+                <p class="text-secondary t-14"> <span class="text-dark font-weight-bold">SKU : </span> {{prod.sku}}</p>
+                <p class="text-secondary t-14"> <span class="text-dark font-weight-bold">Category : </span>
+                    {{prod.category}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 p-0">
+    <p class="font-weight-bold h5">Description</p>
+    <p class="t-14">{{prod.desc}}</p>
+</div>
+
+<div class="carousel-cart-page container p-0 my-5">
+    <p class="heading h4">Related Products</p>
+    <hr>
+    <div class="owl-carousel owl-carousel-cart-page owl-theme">
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="width:250px">
+            <div class="col m-0">
+                <div class="border rounded product">
+                    <div class="img">
+                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                        <div class="compare-wishlist">
+                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                    class="far fa-heart"></i> Wishlist</a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
+                        <p class="star m-0 mb-2">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </p>
+                        <div class="container d-flex justify-content-between p-0">
+                            <p class="font-weight-bold text-warning">$120.00</p>
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

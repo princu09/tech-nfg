@@ -1,0 +1,267 @@
+/* Lato Font Includes Here */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.accent-color {
+    color: #2a3e55 !important;
+}
+
+.accent-bg-color {
+    color: white !important;
+    background: #2a3e55 !important;
+}
+
+.accent-color-btn {
+    color: #2a3e55 !important;
+    outline: #2a3e55 !important;
+    border: 1px solid #2a3e55 !important;
+}
+
+.accent-color-btn:hover,
+.accent-color-btn:focus {
+    background-color: #2a3e55;
+    color: #fff !important;
+}
+
+.btn-text {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.t-color {
+    color: black;
+    transition: 0.5s color ease;
+    text-decoration: none;
+}
+
+.t-color:hover {
+    color: darkorange;
+}
+
+.t-12 {
+    font-size: 12px;
+}
+
+.t-14 {
+    font-size: 14px;
+}
+
+.t-18 {
+    font-size: 18px;
+}
+
+.t-24 {
+    font-size: 24px;
+}
+
+.t-26 {
+    font-size: 26px;
+}
+
+.t-30 {
+    font-size: 30px;
+}
+
+.t-dark {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.t-light {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.lead-text-light {
+    font-weight: 300;
+}
+
+.logo-text {
+    font-weight: 900 !important;
+    color: #2a3e55;
+    text-shadow: 1px 1px 2px rgba(42, 62, 85, 0.5);
+}
+
+.navbar-nav .active>.nav-link {
+    color: darkorange !important;
+}
+
+.fa-user-headset {
+    color: darkorange;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.nav-top .nav-link {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s color ease;
+}
+
+.nav-top .nav-link:hover {
+    color: darkorange !important;
+}
+
+.nav-top .nav-item:nth-child(1),
+.nav-top .nav-item:nth-child(2),
+.nav-top .nav-item:nth-child(3),
+.nav-top .nav-item:nth-child(4) {
+    border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+.nav-top .nav-item:nth-last-child(1) {
+    border-right: none !important;
+}
+
+.nav-head {
+    padding: 30px 0;
+    align-items: center;
+}
+
+.main-nav .nav-item {
+    margin: 0 5px;
+}
+
+.box {
+    max-width: 400px;
+    width: 100%;
+}
+
+.box .search-box {
+    position: relative;
+    height: 40px;
+    margin: auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.box .search-box input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: #fff;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.box .search-box .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    background: #FFF;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: darkorange;
+    font-size: 20px;
+    border-radius: 25px;
+    border: none;
+    transition: 0.5s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box .search-box .icon:hover {
+    background-color: darkorange;
+    color: white;
+    border: none;
+}
+
+.main-nav {
+    background: #2a3e55;
+}
+
+.newsletter,
+.copyright {
+    color: white;
+    background: #2a3e55;
+}
+
+.credit-card {
+    font-size: 24px;
+}
+
+.box2 {
+    max-width: 400px;
+    width: 100%;
+}
+
+.box2 .search-box {
+    position: relative;
+    height: 40px;
+    margin: auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.box2 .search-box input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: #fff;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.box2 .search-box .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    background: #FFF;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: darkorange;
+    font-size: 30px;
+    border-radius: 25px;
+    border: none;
+    transition: 0.5s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    padding: 50px 0;
+}
+
+.footer .fa-map-marker-alt {
+    font-size: 20px;
+}
+
+.technewscard {
+    background-position: center;
+    background-size: cover;
+    background: none;
+}
+
+.technewscard .card-img-top {
+    height: 200px;
+}
+
+.technewscard .card-title {
+    height: 50px;
+}
+
+.active-menu a {
+    color: darkorange !important;
+}

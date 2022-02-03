@@ -1,0 +1,18 @@
+.list-group .active {
+    background-color: #2a3e55;
+    border: none;
+}
+
+.list-group .active a {
+    color: white !important;
+}
+
+.list-group a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s color ease;
+}
+
+.list-group a:hover {
+    color: darkorange;
+}

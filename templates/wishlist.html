@@ -1,0 +1,53 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block title %}Wishlist{% endblock title %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+       </ol>
+</nav>
+
+<div class="container mb-4">
+
+       <table id="table_id" class="display text-center">
+              <thead>
+                     <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Categories</th>
+                            <th>Price</th>
+                            <th>Add To Cart</th>
+                            <th></th>
+                     </tr>
+              </thead>
+              <tbody>
+                     {% for i in orders %}
+                     <tr>
+                            <td class="d-flex justify-content-center"><img src="media/{{i.product.images1}}"
+                                          height="80px" alt=""></td>
+                            <td>{{i.product.title}}</td>
+                            <td>{{i.product.categories}}</td>
+                            <td>{{i.product.price}}</td>
+                            <td>
+                                   <button class="btn btn-sm add_cart_from_wishlist"
+                                          style="background-color:#2a3e55;color:white;border-radius:50px"
+                                          data-product="{{i.product.id}}">Add to Cart</button>
+                            </td>
+                            <td><a href="/removeFromWishlist/{{i.product.id}}" class="btn fas fa-times"></a></td>
+                     </tr>
+                     {% endfor %}
+              </tbody>
+       </table>
+</div>
+
+<script>
+       $(document).ready(function () {
+              $('#table_id').DataTable();
+       });
+</script>
+
+{% endblock %}

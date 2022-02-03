@@ -1,0 +1,26 @@
+{% extends './include/basic.html' %}
+{% block body %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb container">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My Account</li>
+    </ol>
+</nav>
+{% if user.is_authenticated %}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            {% include "include/my_ac_list.html" %}
+        </div>
+        <div class="col-md-9">
+            <p class="h3 font-weight-bold accent-color">My Address</p>
+            {% for x in a %}
+            {{x.address}}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+{% include 'include/ac_login.html' %}
+{% endif %}
+{% endblock %}

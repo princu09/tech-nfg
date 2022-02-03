@@ -1,0 +1,58 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Cart</li>
+       </ol>
+</nav>
+
+
+<div class="container mb-4">
+       
+       <table id="table_id" class="display text-center">
+              <thead>
+                     <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Item</th>
+                            <th>Total</th>
+                            <th></th>
+                     </tr>
+              </thead>
+              <tbody>
+                     {% for i in orders %}
+                     <tr>
+                            <td class="d-flex justify-content-center"><img src="media/{{i.product.images1}}"
+                                          height="80px" alt=""></td>
+                            <td>{{i.product.title}}</td>
+                            <td>{{i.product.price}}</td>
+                            <td>{{i.itemLen}}</td>
+                            <td>{% widthratio i.product.price 1 i.itemLen %}</td>
+                            <td><a href="/removeFromCart/{{i.product.id}}" class="btn fas fa-times"></a></td>
+                     </tr>
+                     {% endfor %}
+              </tbody>
+              <tfoot>
+                     <tr>
+                            <td colspan="4" class="font-weight-bold">Total :</td>
+                            <td class="font-weight-bold totalPrice">{{totalPrice}}</td>
+                            <td></td>
+                     </tr>
+              </tfoot>
+       </table>
+
+</div>
+
+<script>
+       $(document).ready(function () {
+              $('#table_id').DataTable();
+       });
+</script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container-fluid my-5">
+    <p class="h3 text-uppercase mb-5 text-center font-weight-bold text-warning">Tech <span class="accent-color">Updates</span></p>
+    <div class="row d-flex justify-content-center flex-row">
+        {% for i in nData %}
+        <div class="card technewscard mr-3 mb-3" style="width: 18rem;">
+            <img src="{% if i.urlToImage is null %} {% static 'img/logo/logo.png' %} {% else %} {{i.urlToImage}} {% endif %}" class="card-img-top w-100" alt="...">
+            <div class="card-body">
+                <h5 class="card-title t-14 font-weight-bold">{{i.title}}</h5>
+                <p class="t-14">{{i.description|truncatechars:100}}</p>
+                <p class="card-text"><a target="_blank" href="{{i.url}}"><small class="text-muted"><i
+                                class="far fa-newspaper"></i> Read Full Article...</small></a></p>
+            </div>
+        </div>
+        {% endfor %}
+        {% comment %} {% for i in bbc %}
+        <div class="card technewscard mr-3 mb-3" style="width: 18rem;">
+            <img src="{% static 'img/logo/logo.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title t-14 font-weight-bold">{{i.title}}</h5>
+                <p class="t-14">{{i.description}}</p>
+                <p class="card-text"><a target="_blank" href="{{i.link}}"><small class="text-muted"><i
+                                class="far fa-newspaper"></i> Read Full Article...</small></a></p>
+            </div>
+        </div>
+        {% endfor %} {% endcomment %}
+    </div>
+</div>
+{% endblock body %}

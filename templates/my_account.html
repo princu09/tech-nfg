@@ -1,0 +1,92 @@
+{% extends './include/basic.html' %}
+{% block body %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb container">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My Account</li>
+    </ol>
+</nav>
+{% if user.is_authenticated %}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            {% include "include/my_ac_list.html" %}
+        </div>
+        <div class="col-md-9">
+            {% if "make_changes" in request.path %}
+            <p class="h3 font-weight-bold accent-color">My Information</p>
+            <form action="/make_changes" method="POST">
+                {% csrf_token %}
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for="">First Name</label>
+                        <input type="text" class="form-control" placeholder="John" value="{{user.first_name}}" name="fname">
+                    </div>
+                    <div class="col">
+                        <label for="">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Deo" value="{{user.last_name}}" name="lname">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" placeholder="Username" value="{{user.username}}" disabled>
+                    </div>
+                    <div class="col">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" placeholder="yourname@email.com"
+                            value="{{user.email}}" name="email">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <label for="">Birthday</label>
+                        <input type="date" class="form-control" placeholder="" value="{{user.birthday}}" name="bday">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-sm accent-color-btn mt-4">
+                    Submit Changes
+                </button>
+            </form>
+            {% else %}
+            <p class="h3 font-weight-bold accent-color">My Information</p>
+            <div class="row mt-4">
+                <div class="col">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" placeholder="John" value="{{user.first_name}}" disabled>
+                </div>
+                <div class="col">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Deo" value="{{user.last_name}}" disabled>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" value="{{user.username}}" disabled>
+                </div>
+                <div class="col">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" placeholder="yourname@email.com" value="{{user.email}}"
+                        disabled>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label for="">Birthday</label>
+                    <input type="date" class="form-control" placeholder="" value="{{user.birthday}}" disabled>
+                </div>
+            </div>
+            <a href="my_account/make_changes" class="btn-text">
+                <button class="btn btn-sm accent-color-btn mt-4">
+                    Make Changes
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% else %}
+{% include 'include/ac_login.html' %}
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-3">
+    
+    <!-- <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
+            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
+                efficiently about what’s most interesting in this post’s contents.</p>
+            <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+        </div>
+    </div> -->
+
+
+    <div class="row mb-2">
+        {% for item in mypost %}
+        <div class="col-md-6">
+            <div
+                class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">{{item.batch_title}}</strong>
+                    <h4 class="mb-0">{{item.title|slice:"0:40"}}...</h4>
+                    <div class="mb-1 text-muted">{{item.pub_date}}</div>
+                    <p class="card-text mb-auto">{{item.heading0}}</p>
+                    <a href="blogpost/{{item.post_id}}" class="stretched-link">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="/media/{{item.thumbnail}}"  width="200" height="250"  role="img"
+                    aria-label="Placeholder: Thumbnail" alt="">
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:2 %}
+    </div>
+    <div class="row mb-2">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

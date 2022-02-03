@@ -1,0 +1,104 @@
+.carousel-new-items .owl-nav,
+.latest-deal .owl-nav,
+.carousel-cart-page .owl-nav {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    font-size: 25px;
+    display: flex;
+}
+
+.carousel-cart-page .owl-prev,
+.carousel-cart-page .owl-next,
+.carousel-new-items .owl-prev,
+.carousel-new-items .owl-next,
+.latest-deal .owl-prev,
+.latest-deal .owl-next {
+    text-align: center;
+    background: #f3f3f3 !important;
+    width: 30px;
+    height: 30px;
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    border-radius: 3px;
+    transition: 0.3s color ease;
+}
+
+.carousel-cart-page .owl-prev:hover,
+.carousel-cart-page .owl-next:hover,
+.carousel-new-items .owl-prev:hover,
+.carousel-new-items .owl-next:hover,
+.latest-deal .owl-prev:hover,
+.latest-deal .owl-next:hover {
+    background: #2a3e55 !important;
+    color: white !important;
+}
+
+.carousel-cart-page .owl-prev:focus,
+.carousel-cart-page .owl-prev:active,
+.carousel-cart-page .owl-prev:visited,
+.carousel-cart-page .owl-next:focus,
+.carousel-new-items .owl-prev:focus,
+.carousel-new-items .owl-prev:active,
+.carousel-new-items .owl-prev:visited,
+.carousel-new-items .owl-next:focus,
+.latest-deal .owl-prev:focus,
+.latest-deal .owl-prev:active,
+.latest-deal .owl-prev:visited,
+.latest-deal .owl-next:focus {
+    border: none;
+    outline: none;
+}
+
+.company-logos .owl-prev {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    font-size: 25px;
+}
+
+.company-logos .owl-next {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    font-size: 25px;
+}
+
+.company-logos .owl-prev,
+.company-logos .owl-next {
+    opacity: 0;
+    text-align: center;
+    background: #f3f3f3 !important;
+    width: 30px;
+    height: 30px;
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    border-radius: 3px;
+    transition: 0.3s color ease;
+    transition: 0.5s all ease;
+}
+
+.company-logos .owl-prev:hover,
+.company-logos .owl-next:hover {
+    background: #2a3e55 !important;
+    color: white !important;
+}
+
+.company-logos .owl-prev:focus,
+.company-logos .owl-prev:active,
+.company-logos .owl-prev:visited,
+.company-logos .owl-next:focus {
+    border: none;
+    outline: none;
+}
+
+.company-logos:hover .owl-prev,
+.company-logos:hover .owl-next {
+    opacity: 1;
+}

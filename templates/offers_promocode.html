@@ -1,0 +1,26 @@
+{% extends './include/basic.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        {% for i in data %}
+        <div class="col-md-4">
+            <div class="card m-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="container">
+                            <h5 class="card-title font-weight-bold">{{i.0}}</h5>
+                            <p class="card-text text-secondary">{{i.1}}</p>
+                            <button class="btn btn-light">
+                                <i class="fas fa-badge-percent"></i> <span onclick="copyTxt()">{{i.2}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

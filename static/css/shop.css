@@ -1,0 +1,67 @@
+.shop-page .product,
+.featured-product .product {
+    width: 260px;
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.shop-page .product .img img,
+.featured-product .product .img img {
+    width: auto;
+    max-height: 200px;
+}
+
+.shop-page .star {
+    font-size: 12px;
+}
+
+.shop-page .cart-btn,
+.featured-product .cart-btn {
+    background: #dfdfdf;
+    padding: 5px 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.shop-page .product:hover .cart-btn {
+    background: #2a3e55;
+    color: #fff;
+}
+
+.shop-page .img,
+.featured-product .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+.shop-page .compare-wishlist,
+.featured-product .compare-wishlist {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    background: rgba(223, 223, 223, 0.5);
+    height: 50px;
+    margin-bottom: -25px;
+    bottom: -100px;
+    transition: 0.5s all ease;
+}
+
+.shop-page .compare-wishlist a,
+.featured-product .compare-wishlist a {
+    color: #444;
+    font-size: 13px;
+}
+
+.shop-page .heading {
+    font-weight: 800 !important;
+}
+
+.shop-page .product:hover .compare-wishlist {
+    bottom: 40px;
+}

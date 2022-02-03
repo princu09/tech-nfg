@@ -1,0 +1,103 @@
+.single-product .prod-btn {
+    background: #dfdfdf;
+    padding: 5px 8px;
+    font-size: 13px;
+    color: #2a3e55;
+    margin-left: 10px;
+}
+
+.single-product .prod-btn:hover {
+    background: #2a3e55;
+    color: white;
+}
+
+.carousel-cart-page .product {
+    width: 350px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+}
+
+.carousel-cart-page .product .img img {
+    width: 350px;
+}
+
+.carousel-cart-page .star {
+    font-size: 12px;
+}
+
+.carousel-cart-page .cart-btn {
+    background: #dfdfdf;
+    padding: 5px 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.carousel-cart-page .product:hover .cart-btn {
+    background: #2a3e55;
+    color: #fff;
+}
+
+.carousel-cart-page .img {
+    overflow: hidden;
+}
+
+.carousel-cart-page .compare-wishlist {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    background: rgba(223, 223, 223, 0.5);
+    height: 50px;
+    margin-bottom: -25px;
+    top: 100px;
+    transition: 0.5s all ease;
+}
+
+.carousel-cart-page .compare-wishlist a {
+    color: #444;
+    font-size: 13px;
+}
+
+.carousel-cart-page .heading {
+    font-weight: 700 !important;
+}
+
+.carousel-cart-page .product:hover .compare-wishlist {
+    top: -50px;
+}
+
+.image-gallery-small {
+    /* min-width: 100px !important; */
+    max-width: 100px !important;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.image-gallery-big {
+    min-width: 465px !important;
+    max-width: 465px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-gallery-big img {
+    height: 400px !important;
+    max-height: 400px !important;
+    width: auto !important;
+    max-width: 540px !important;
+}
+
+.whatsapp-this a {
+    color: #2a3e55;
+}
+
+.whatsapp-this a:hover {
+    text-decoration: none;
+    background-color: #2a3e55;
+    color: white !important;
+}

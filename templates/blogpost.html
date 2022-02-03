@@ -1,0 +1,36 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+
+<main role="main" class="container mt-3">
+       <div class="row">
+
+              <div class="col-md-8 my-4 blog-main">
+
+                     <div class="pb-0 mb-4 border-bottom">
+                            <h3>{{post.title}}</h3>
+                            <p class="blog-post-meta">{{post.pub_date}}</p>
+                     </div>
+
+                     <div class="blog-post">
+                            <p>{{post.main_content}}</p>
+
+                            <h5 class="pt-3 font-weight-bold">{{post.heading}}</h5>
+                            <p>{{post.content_heading}}</p>
+
+                            <h5 class="pt-3 font-weight-bold">{{post.sub_heading}}</h5>
+                            <p>{{post.sub_content_heading}}</p>
+
+                            <div class="container d-flex">
+                                   <img src="/media/{{post.thumbnail}}" alt="">
+                            </div>
+                     </div><!-- /.blog-post -->
+              </div><!-- /.blog-main -->
+
+       </div><!-- /.row -->
+</main>
+
+{% endblock %}

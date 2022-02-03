@@ -1,0 +1,81 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb container">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+    </ol>
+</nav>
+
+<div class="container shop-page">
+    <div class="container pb-5 top-nav m-0 p-0">
+        <div class="container p-0">
+            <button class="btn border t-12"><i class="far fa-th"></i></button>
+            <button class="btn border t-12"><i class="far fa-list"></i></button>
+        </div>
+        <div class="container p-0 d-flex justify-content-end">
+            <div class="form-group">
+                <select class="form-control t-12">
+                    <option>Default Sorting</option>
+                    <option>Sort By Popularity</option>
+                    <option>Sort By Average Rating</option>
+                    <option>Sort By Newness</option>
+                    <option>Sort By Price : Low to High</option>
+                    <option>Sort By Price : High to Low</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4">
+        {% for i in prod %}
+        <div class="col-md-3 mb-3">
+            <div class="border rounded product">
+                <div class="img">
+                    <img src="/media/{{i.images1}}" alt="">
+                    <div class="compare-wishlist">
+                        <a href="">
+                            <i class="far fa-reply-all"></i> Compare </a> | <a href=""><i class="far fa-heart"></i>
+                            Wishlist
+                        </a>
+                    </div>
+                </div>
+                <div class="container">
+                    <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                    <p class="star m-0 mb-2">
+                        {% comment %} <p class="rating">{{i.rating}}</p> {% endcomment %}
+                    </p>
+                    <div class="container d-flex justify-content-between p-0">
+                        <p class="font-weight-bold text-warning">₹ {{i.price}} /-</p>
+                        <a href="/single_product/{{i.id}}">
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <hr>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item border-0">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item border-0"><a class="page-link" href="#">1</a></li>
+            <li class="page-item border-0"><a class="page-link" href="#">2</a></li>
+            <li class="page-item border-0"><a class="page-link" href="#">3</a></li>
+            <li class="page-item border-0">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}

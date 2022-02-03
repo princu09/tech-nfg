@@ -1,0 +1,66 @@
+.main-footer .float-right {
+    display: none !important;
+}
+
+.accent-primary .btn-link,
+.accent-primary .nav-tabs .nav-link,
+.accent-primary a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.btn) {
+    color: darkorange !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #2a3e55;
+    border-color: #2a3e55;
+}
+
+.btn-outline-success {
+    color: #2a3e55;
+    border-color: #2a3e55;
+}
+
+.card-primary.card-outline {
+    border-top: 3px solid #2a3e55;
+}
+
+.btn-outline-primary {
+    color: #2a3e55;
+    border-color: #2a3e55;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2a3e55;
+    border-color: #2a3e55;
+}
+
+.bg-blue {
+    background-color: #2a3e55!important;
+}
+
+.bg-success {
+    background-color: darkorange !important;
+}
+
+.btn-outline-info {
+    color: darkorange;
+    border-color: darkorange;
+}
+
+.btn-outline-info:hover {
+    background-color: darkorange !important;
+    border-color: darkorange;
+}
+
+.alert-success {
+    color: #fff;
+    background-color: #2a3e55;
+    border-color: #2a3e55;
+}
+
+[class*=sidebar-dark-] {
+    background-color: #1a2a3b;
+}
+
+[class*=sidebar-dark] .brand-link,
+[class*=sidebar-dark] .brand-link .pushmenu {
+    color: rgba(255, 255, 255, 1);
+}

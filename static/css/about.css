@@ -1,0 +1,25 @@
+.breadcrumb {
+    background: none !important;
+}
+
+.about-img {
+    border-radius: 5px;
+}
+
+.about-img-grid img {
+    filter: gray;
+    /* IE6-9 */
+    -webkit-filter: grayscale(1);
+    /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1);
+    /* Microsoft Edge and Firefox 35+ */
+    transition: 0.5s all ease;
+}
+
+
+/* Disable grayscale on hover */
+
+.about-img-grid img:hover {
+    -webkit-filter: grayscale(0);
+    filter: none;
+}

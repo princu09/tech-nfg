@@ -1,0 +1,402 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<div class="carousel-main" style="background-image : url('{% static 'img/bg/bg.jpg' %}')">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-end align-items-center" style="height:350px">
+                    <div class="col-md-3">
+                        <div class="container">
+                            <p class="text-uppercase h4 text-warning lead-text-light">The Pinnacle</p>
+                            <p class="text-uppercase h4 font-weight-bold">OF Technology</p>
+                            <p class="text-uppercase t-12 ">Mazda is the authorized distributor</p>
+                            <button class="btn btn-sm main-nav text-white p-2 px-3">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{% static 'img/demo/image2.jpg' %}" width="400" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="text-center d-flex flex-column justify-content-center align-items-center"
+                    style="height:400px">
+                    <div class="col-md-3 d-flex flex-column align-items-center ">
+                        <p class="text-uppercase h5 text-warning lead-text-light">The Pinnacle</p>
+                        <p class="text-uppercase h5 font-weight-bold">OF Technology</p>
+                        <p class="text-uppercase t-12 ">Mazda is the authorized distributor</p>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="{% static 'img/demo/image3s.jpg' %}" width="500" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-end align-items-center" style="height:350px">
+                    <div class="col-md-3">
+                        <div class="container">
+                            <p class="text-uppercase h4 text-warning lead-text-light">The Pinnacle</p>
+                            <p class="text-uppercase h4 font-weight-bold">OF Technology</p>
+                            <p class="text-uppercase t-12 ">Mazda is the authorized distributor</p>
+                            <button class="btn btn-sm main-nav text-white p-2 px-3">Read More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{% static 'img/demo/IMAGE1.jpg' %}" width="400" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <i class="fad fa-chevron-left text-dark"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <i class="fad fa-chevron-right text-dark"></i>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="container card-delivery my-5 p-0">
+    <div class="row">
+        <div class="card-col col-md-3">
+            <div class="d-flex align-items-center">
+                <div class="mx-2"><i class="icon fab fa-telegram-plane"></i></div>
+                <div class="container">
+                    <div class="text-uppercase card-heading-text">Free Shipping</div>
+                    <div class="text-secondary card-lead-text">Delivery world wide</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-col col-md-3">
+            <div class="d-flex align-items-center">
+                <div class="mx-2 icon"><i class="far fa-money-bill-alt"></i></div>
+                <div class="container">
+                    <div class="text-uppercase card-heading-text">MONEY BACK</div>
+                    <div class="text-secondary card-lead-text">Delivery world wide</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-col col-md-3">
+            <div class="d-flex align-items-center">
+                <div class="mx-2 icon">
+                    <i class="far fa-tty"></i>
+                </div>
+                <div class="container">
+                    <div class="text-uppercase card-heading-text">Free Shipping</div>
+                    <div class="text-secondary card-lead-text">Delivery world wide</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-col col-md-3">
+            <div class="d-flex align-items-center">
+                <div class="mx-2 icon"><i class="far fa-phone-volume"></i></div>
+                <div class="container">
+                    <div class="text-uppercase card-heading-text">Free Shipping</div>
+                    <div class="text-secondary card-lead-text">Delivery world wide</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-0 img-card-home">
+    <div class="row">
+        <div class="p-0 banner-card col-md-4">
+            <span class="bg"></span>
+            <img src="{% static 'img/demo/banner1.jpg' %}" alt="">
+        </div>
+        <div class="p-0 banner-card col-md-4">
+            <span class="bg"></span>
+            <img src="{% static 'img/demo/banner2.jpg' %}" alt="">
+        </div>
+        <div class="p-0 banner-card col-md-4">
+            <span class="bg"></span>
+            <img src="{% static 'img/demo/banner3.jpg' %}" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container p-0 latest-deal my-5">
+    <div class="row p-0">
+        <div class="col-md-6 pl-0">
+            <p class="h4"><span class="text-warning">Latest</span> Deal</p>
+            <hr>
+            <div class="container"></div>
+        </div>
+        <div class="col-md-6 pl-0">
+            <p class="h4"><span class="text-warning">Most</span> Popular</p>
+            <hr>
+            <div class="container">
+                <div class="owl-carousel owl-product owl-theme">
+                    <div class="item" style="width:280px">
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/ipad1.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/laptop1.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/mobile1.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="width:280px">
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/tivi1.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/laptop2.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/ipad2.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="width:280px">
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/mobile2.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/tivi2.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/laptop3.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="width:280px">
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/mobile4.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/tivi4.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/laptop4.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" style="width:280px">
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/mobile6.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/laptop5.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                        <div class="col mb-2 d-flex align-items-center">
+                            <div class="border rounded product">
+                                <img src="{% static 'img/product/mobile6.png' %}" alt="">
+                            </div>
+                            <div class="content ml-3">
+                                <p class="font-weight-bold m-0 mb-2">Sed Ut Perspiciatis Unde Omnis Iste
+                                </p>
+                                <p class="price font-weight-bold text-warning h5">$590.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid company-logos">
+    <div class="container owl-carousel owl-company-logo owl-theme">
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-1.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-2.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-3.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-4.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-5.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+        <div class="item" style="width:200px">
+            <img src="{% static 'img/logo/brand-6.jpg' %}" alt="" style="border-radius:5px">
+        </div>
+    </div>
+</div>
+
+<div class="container featured-product my-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <p class="heading h4 font-weight-bold"><span class="text-warning">Featured</span> Products</p>
+        <a href="/shop" class="text-dark text-decoration-none font-weight-bold" style="font-size: 0.8rem;">View More <i
+                class="fas fa-arrow-right"></i></a>
+    </div>
+    <hr>
+    <div class="row">
+        {% for i in prod|slice:":8" %}
+        <div class="col-md-3 mb-3">
+            <div class="border rounded product">
+                <div class="img">
+                    <img src="media/{{i.images1}}" alt="">
+                    <div class="compare-wishlist">
+                        <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                class="far fa-heart"></i> Wishlist</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                    <p class="rating">{{i.rating}}</p>
+                    <div class="container d-flex justify-content-between p-0">
+                        <p class="font-weight-bold text-warning">₹ {{i.price}} /-</p>
+                        <a href="/single_product/{{i.id}}">
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container-fluid carousel-new-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <p class="heading h4 font-weight-bold"><span class="text-warning">Top Laptop</span> </p>
+                <hr>
+                <div class="owl-carousel owl-product-new owl-theme">
+                    {% for i in laptop|slice:":8" %}
+                    <div class="item" style="width:250px">
+                        <div class="col m-0">
+                            <div class="border rounded product">
+                                <div class="img">
+                                    <img src="media/{{i.images1}}" alt="">
+                                    <div class="compare-wishlist">
+                                        <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                                class="far fa-heart"></i> Wishlist</a>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                                    <p class="star t-12">
+                                        <p class="rating">{{i.rating}}</p>
+                                    </p>
+                                    <div class="container d-flex justify-content-between p-0">
+                                        <p class="font-weight-bold text-warning">$120.00</p>
+                                        <a href="/single_product/{{i.id}}">
+                                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

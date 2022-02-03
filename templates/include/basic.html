@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech NFG</title>
+
+        <link rel="shortcut icon" href="{% static 'img/logo/logo.png' %}" type="image/x-icon">
+
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{% static 'font-awesome/css/all.css' %}">
+
+        <!-- jQuery -->
+        <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+
+        <!-- Custom JS -->
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/about.css' %}">
+        <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+        <link rel="stylesheet" href="{% static 'css/single_product.css' %}">
+        <link rel="stylesheet" href="{% static 'css/my_account.css' %}">
+
+        <!-- Data Table -->
+        <link rel="stylesheet" href="{% static 'data-tables/data-table.css' %}" />
+
+    </head>
+
+    <body>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container">
+                            <p class="t-30 logo-text">Tech<span class="text-warning">NFG</span></p>
+                            <p class="h-14 font-weight-bold">Welcome Back !</p>
+                            <form action="/handle_login" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="">Username</label>
+                                    <input type="username" class="form-control" id="" name="usrname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" id="" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-primary accent-bg-color">Submit</button>
+                                <button type="" class="btn btn-warning">Cancle</button>
+                            </form>
+                            <div class="container m-0 p-0 my-3">
+                                <a href="" class="">Lost Your Password ?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-nav t-12 t-light">
+            <div class="container d-flex justify-content-between align-items-center">
+                <span class="t-dark">Welcome to Tech NFG !</span>
+                <ul class="nav nav-top">
+                    <li class="nav-item {% if "cart" in request.path %}active-menu{% endif %}">
+                        <a class="nav-link p-0 px-3" href="/cart"><i class="far fa-shopping-bag"></i> Checkout</a>
+                    </li>
+                    <li class="nav-item {% if "wishlist" in request.path %}active-menu{% endif %}">
+                        <a class="nav-link p-0 px-3" href="/wishlist"><i class="far fa-heart"></i> Wishlist</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item {% if "my_account" in request.path %}active-menu{% endif %}">
+                        <a class="nav-link p-0 px-3" href="/my_account"><i class="far fa-user-circle"></i> My
+                            Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0 px-3" href="/handle_logout"><i class="far fa-sign-out"></i> Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link p-0 px-3" href="#" data-toggle="modal" data-target="#exampleModal"><i
+                                class="far fa-lock"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0 px-3" href="my_account"><i class="far fa-sign-in-alt"></i> Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="container nav-head d-flex">
+            <div class="container col-md-4">
+                <p class="t-30 logo-text">Tech<span class="text-warning">NFG</span></p>
+            </div>
+            <div class="container col-md-4">
+                <div class="box">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search here...">
+                        <button class="icon btn">
+                            <i class="far fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex col-md-3">
+                <i class="far fa-user-headset fa-2x"></i>
+                <div class="ml-3 d-flex flex-column">
+                    <p class="t-14 m-0">Call Us: 24x7</p>
+                    <p class="t-14 m-0"><a class="t-color" href="tel:+919033717372">+91 9033 71 7372</a></p>
+                </div>
+            </div>
+            <div class="container cart-nav col-md-2">
+                <a tabindex="0" id="popOver" class="text-dark text-decoration-none" role="button" data-toggle="popover"
+                    data-trigger="focus" title="Cart" data-placement="bottom" data-content="">
+                    <i class="far fa-shopping-bag fa-2x"></i>
+                    <span class="h5 ml-2">0.00</span><span class="h5 ml-2">₹</span>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="container-fluid main-nav">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item {% if "home" in request.path %}active{% endif %}">
+                            <a class="nav-link" href="/"><i class="far fa-home"></i> Home</a>
+                        </li>
+                        <li
+                            class="nav-item {% if "shop" in request.path %} active {% elif "single_product" in request.path %} active{% endif %}">
+                            <a class="nav-link" href="/shop"> <i class="far fa-store-alt"></i> Shop
+                            </a>
+                        </li>
+                        <li class="nav-item {% if "offers_promocode" in request.path %} active{% endif %}">
+                            <a class="nav-link" href="/offers_promocode"> <i class="far fa-user-tag"></i> Offers &
+                                Promocode
+                            </a>
+                        </li>
+                        <li class="nav-item {% if "tech-updates" in request.path %}active{% endif %}">
+                            <a class="nav-link" href="/tech-updates"><i class="far fa-phone-laptop"></i> Tech Updates</a>
+                        </li>
+                        <li class="nav-item {% if "blog" in request.path %}active{% endif %}">
+                            <a class="nav-link" href="/blog"><i class="far fa-rss-square"></i> Blog</a>
+                        </li>
+                        <li class="nav-item {% if "about" in request.path %}active{% endif %}">
+                            <a class="nav-link" href="about"><i class="far fa-info-circle"></i> About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        {% block body %}{% endblock body %}
+
+        <div class="newsletter">
+            <div class="p-0 pt-2 container d-flex align-items-center">
+                <div class="col-md-6">
+                    <p class="h3 font-weight-bold text-white">Join Our Newsletter</p>
+                    <p class="t-14 t-light">Subscribe to receive inspiration, ideas and news in your inbox.</p>
+                </div>
+                <div class="col-md-6 subscribe-newsletter">
+                    <form>
+                        <div class="box2">
+                            <div class="search-box">
+                                <input type="text" placeholder="Your Email Address">
+                                <button class="icon btn">
+                                    <i class="fab fa-telegram"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="d-flex flex-row">
+                            <i class="far fa-user-headset fa-2x"></i>
+                            <div class="ml-3 d-flex flex-column">
+                                <p class="t-12 m-0">Call Us: 24x7</p>
+                                <p class="t-12 m-0"><a class="t-color" href="tel:+919033717372">+91 9033 71 7372</a></p>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p class="t-12 ml-4"><span class="font-weight-bold">Address :</span> 5 , Shyam Belle Ville ,
+                                Koteswar , A'bad : 05. Gujarat , India.</p>
+                        </div>
+                        <div class="d-flex ">
+                            <i class="fas fa-envelope"></i>
+                            <p class="t-12 ml-4"><span class="font-weight-bold">Mail Us :</span> <a
+                                    href="mailto:NorthFoxGroup@hotmail.com">NorthFoxGroup@hotmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Information</p>
+                        <ul class="navbar-nav">
+                            <li class="my-1"><a class="t-color" href="">Site Map</a></li>
+                            <li class="my-1"><a class="t-color" href="">Advanced Search</a></li>
+                            <li class="my-1"><a class="t-color" href="">About Us</a></li>
+                            <li class="my-1"><a class="t-color" href="">Contact Us</a></li>
+                            <li class="my-1"><a class="t-color" href="">Suppliers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Support & Services</p>
+                        <ul class="navbar-nav">
+                            <li class="my-1"><a class="t-color" href="">Customer Service</a></li>
+                            <li class="my-1"><a class="t-color" href="">Protection Plans</a></li>
+                            <li class="my-1"><a class="t-color" href="">Installation</a></li>
+                            <li class="my-1"><a class="t-color" href="">Trade-In Program</a></li>
+                            <li class="my-1"><a class="t-color" href="">More Support & Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="font-weight-bold">Orders & returns</p>
+                        <ul class="navbar-nav">
+                            <li class="my-1"><a class="t-color" href="">Order Status</a></li>
+                            <li class="my-1"><a class="t-color" href="">Return & Exchange Promise</a></li>
+                            <li class="my-1"><a class="t-color" href="">Price Match Guarantee</a></li>
+                            <li class="my-1"><a class="t-color" href="">Pay With Points</a></li>
+                            <li class="my-1"><a class="t-color" href="">More Orders & Returns Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container p-0 d-flex">
+                <div class="container" style="padding: 8px 0">
+                    <p class="mb-0">Designed By NorthFoxGroup &copy; 2021</p>
+                </div>
+                <div class="container text-right credit-card">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-stripe"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-jcb"></i>
+                    <i class="fab fa-cc-discover"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                    <i class="fab fa-cc-diners-club"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- owl carousel -->
+        <script src="{% static 'owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+        <script src="{% static 'js/owl-carousel.js' %}"></script>
+
+        <!-- Bootstap JS -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+        <!-- Data Table JS -->
+        <script src="{% static 'data-tables/data-table.js' %}"></script>
+
+    </body>
+
+</html>

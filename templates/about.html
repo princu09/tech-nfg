@@ -1,0 +1,44 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb container">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About</li>
+    </ol>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="h4 font-weight-bold">About Us</p>
+            <p class="t-14">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+                of classical Latin literature from 45 BC, making it over 2000 years old.
+            </p>
+            <p class="t-14">                Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more
+                obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+                classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+                1.10.33 of “de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.</p>
+            <p class="h4 font-weight-bold">Our Brand</p>
+            <p class="t-14">“On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire.</p>
+            <p class="t-14">That they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will.</p>
+        </div>
+        <div class="col-md-6">
+            <img class="about-img" src="{% static 'img/demo/image-5.jpg' %}" width="500" alt="">
+        </div>
+    </div>
+
+    <div class="row mt-5 about-img-grid">
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/5-1.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/6-1.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/7.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/8.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/9.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/10.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/12.jpg' %}" alt="" width="280"></div>
+        <div class="col-md-3 p-0 m-0 mb-2"><img src="{% static 'img/demo/BLOG-11.jpg' %}" alt="" width="280"></div>
+    </div>
+</div>
+{% endblock body %}
