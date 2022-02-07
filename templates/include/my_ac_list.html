@@ -1,8 +1,14 @@
 <ul class="list-group">
-    <li class="list-group-item {% if "my_account" in request.path %}active{% endif %}"><a href="/my_account"><i class="fas fa-user-circle mr-2"></i> My Details</a></li>
-    <li class="list-group-item {% if "my_address" in request.path %}active{% endif %}"><a href="/my_address"><i class="fas fa-map-marker-alt mr-2"></i> My Address</a></li>
-    <li class="list-group-item {% if "my_orders" in request.path %}active{% endif %}"><a href=""><i class="fas fa-shopping-bag mr-2"></i> My Orders</a></li>
-    <li class="list-group-item {% if "my_newsletter" in request.path %}active{% endif %}"><a href=""><i class="fab fa-telegram-plane mr-2"></i> My Newsletter</a></li>
-    <li class="list-group-item {% if "account_setting" in request.path %}active{% endif %}"><a href=""><i class="fas fa-cogs mr-2"></i> Account Setting</a></li>
-    <li class="list-group-item {% if "logout" in request.path %}active{% endif %}"><a href="/handle_logout"><i class="fas fa-sign-out mr-2"></i> Logout</a></li>
+    <li class="list-group-item {% if "my_account" in request.path %}active{% endif %}">
+        <a href="/my_account"><i class="fas fa-user-circle mr-2"></i> My Details</a>
+    </li>
+    <li class="list-group-item {% if "my_orders" in request.path %}active{% endif %}">
+        <a href="/my_orders"><i class="fas fa-shopping-bag mr-2"></i> My Orders</a>
+    </li>
+    <li class="list-group-item {% if "account_setting" in request.path %}active{% endif %}">
+        <a href="/account_setting"><i class="fas fa-cogs mr-2"></i> Account Setting</a>
+    </li>
+    <li class="list-group-item {% if "logout" in request.path %}active{% endif %}">
+        <a href="/handle_logout"><i class="fas fa-sign-out mr-2"></i> Logout</a>
+    </li>
 </ul>

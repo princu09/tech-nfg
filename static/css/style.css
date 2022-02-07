@@ -6,6 +6,22 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.top-icon {
+    background-color: #2a3e55;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
 }
 
 .accent-color {
@@ -264,4 +280,19 @@
 
 .active-menu a {
     color: darkorange !important;
+}
+
+
+/* common code */
+
+.card-delivery .row,
+.img-card-home .row .banner-card,
+.company-logos .container {
+    display: flex;
+    justify-content: center !important;
+}
+
+.totalPrice {
+    color: darkorange;
+    font-size: 1.2rem;
 }

@@ -13,7 +13,7 @@
 
 
 <div class="container mb-4">
-       
+
        <table id="table_id" class="display text-center">
               <thead>
                      <tr>
@@ -38,14 +38,25 @@
                      </tr>
                      {% endfor %}
               </tbody>
-              <tfoot>
+              {% comment %} <tfoot>
                      <tr>
                             <td colspan="4" class="font-weight-bold">Total :</td>
                             <td class="font-weight-bold totalPrice">{{totalPrice}}</td>
                             <td></td>
                      </tr>
-              </tfoot>
+              </tfoot> {% endcomment %}
        </table>
+
+       <p class="h3 mt-5 font-weight-bold">Cart Total</p>
+       <div class="col-md-4 p-0 mt-4">
+              <table class="rounded border">
+                     <tr>
+                            <td width="200px" class="p-2 ">Total : </width=td>
+                            <td width="200px" class="p-2 font-weight-bold totalPrice">{{totalPrice}}</td>
+                     </tr>
+              </table>
+              <a href="/checkout" class="btn btn-warning mt-2 text-uppercase btn-block">Proceed to checkout</a>
+       </div>
 
 </div>
 

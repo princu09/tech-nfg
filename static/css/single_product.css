@@ -12,8 +12,8 @@
 }
 
 .carousel-cart-page .product {
-    width: 350px;
-    height: 500px;
+    width: 250px;
+    height: 350px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -21,7 +21,7 @@
 }
 
 .carousel-cart-page .product .img img {
-    width: 350px;
+    width: 250px;
 }
 
 .carousel-cart-page .star {

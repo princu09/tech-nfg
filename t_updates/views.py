@@ -1,76 +1,56 @@
-# Page Redirect , Request Page , Response Page
-from unicodedata import category
+# Render Message
+from django.contrib import messages
+# Forieng key
 from django.contrib.auth.models import User
+# Json Response For Ajax
 from django.http import JsonResponse
+# Page Redirect , Request Page , Response Page
 from django.shortcuts import render, redirect
 # Login account
 from django.contrib.auth import authenticate, login, logout
 # import Tables
-from .models import Address, Blogpost, Product, Wishlist , Cart
+from .models import Blogpost, Order, Product, Subscribe, Wishlist, Cart
 # For Search Query
 from django.db.models import Q
-# Date Time
+# Request For Tech News
 import requests
 from bs4 import BeautifulSoup
 
+
+# Home Page Function
 def index(request):
     prod = Product.objects.all().order_by('?')
     laptop = Product.objects.filter(category="laptop").order_by('?')
-    return render(request, 'index.html'  , context={'prod' : prod , 'laptop' : laptop})
+    return render(request, 'index.html', context={'prod': prod, 'laptop': laptop})
 
 
-def updates(request):
-    # news api
-    n = "https://newsapi.org/v2/everything?q=apple&from=2022-01-31&to=2022-01-31&sortBy=popularity&apiKey=26ae9ce94adb461eb4cb147a43eb88c1"
-
-    resp = requests.get(n)
-    newsapi = resp.json()
-    print(newsapi)
-
-    nData = []
-    for i in newsapi['articles']:
-        print(i)
-        nData.append(i)
-
-    context = {'nData': nData}
-    return render(request, 'tech-updates.html', context)
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
+# Shop Page Function
 def shop(request):
     prod = Product.objects.all()
     return render(request, 'shop.html', context={'prod': prod})
 
 
+# Single Product View Page Function
 def single_product(request, id):
     prod = Product.objects.get(id=id)
-    return render(request, 'single_product.html', context={'prod': prod})
+    releted = Product.objects.filter(Q(category__contains=prod.category))
+    return render(request, 'single_product.html', context={'prod': prod, 'releted': releted})
 
 
-def my_account(request):
-    return render(request, 'my_account.html')
+# Product View By Category Function
+def product_category(request, category):
+    prod = Product.objects.filter(category=category)
+    category = category
+    return render(request, 'shop.html', context={'prod': prod, 'category': category})
 
 
-def make_changes(request):
-    if request.method == "POST":
-        fname = request.POST['fname']
-        lname = request.POST['lname']
-        email = request.POST['email']
-        bday = request.POST['bday']
-
-        u = User.objects.update(email=email, first_name=fname, last_name=lname)
-    return redirect('/my_account')
+def compare_product(request, prod1, prod2):
+    prod1 = Product.objects.get(id=prod1)
+    prod2 = Product.objects.get(id=prod2)
+    return render(request, 'compare_product.html', context={'prod1': prod1, 'prod2': prod2})
 
 
-def my_address(request):
-    current_user = request.user
-    a = Address.objects.filter(id=current_user.id)
-    return render(request, 'my_address.html', context={'a': a})
-
-
+# Offers & Promocode Page Function
 def offers_promocode(request):
     url = "https://www.grabon.in/flight-coupons/"
 
@@ -104,55 +84,69 @@ def offers_promocode(request):
     return render(request, 'offers_promocode.html', context)
 
 
-def handle_signup(request):
-    if request.method == 'POST':
-        usrname = request.POST['usrname']
+# Tech Updates Page Function
+def updates(request):
+    # news api
+    n = "https://newsapi.org/v2/everything?q=apple&from=2022-01-31&to=2022-01-31&sortBy=popularity&apiKey=26ae9ce94adb461eb4cb147a43eb88c1"
+
+    resp = requests.get(n)
+    newsapi = resp.json()
+    print(newsapi)
+
+    nData = []
+    for i in newsapi['articles']:
+        print(i)
+        nData.append(i)
+
+    context = {'nData': nData}
+    return render(request, 'tech-updates.html', context)
+
+
+# About Page Function
+def about(request):
+    return render(request, 'about.html')
+
+
+# My Account Function
+def my_account(request):
+    return render(request, 'my_account.html')
+
+
+# Make Changes in My Account Function
+def make_changes(request):
+    if request.method == "POST":
         fname = request.POST['fname']
         lname = request.POST['lname']
         email = request.POST['email']
-        passwd = request.POST['pass']
+        bday = request.POST['bday']
 
-        user = User.objects.create_user(
-            username=usrname, first_name=fname, last_name=lname, email=email, password=passwd)
-        user.save()
-
-        user = authenticate(username=usrname, password=passwd)
-
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-
+        u = User.objects.update(email=email, first_name=fname, last_name=lname)
     return redirect('/my_account')
 
 
-def handle_login(request):
-    if request.method == "POST":
-        usrname = request.POST['usrname']
-        passwd = request.POST['password']
-
-    user = authenticate(username=usrname, password=passwd)
-
-    if user is not None:
-        login(request, user)
-        return redirect('/')
-    return redirect('/my_account')
+# My Account Function
+def my_orders(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'my_orders.html', context={'orders': orders})
 
 
-def handle_logout(request):
-    logout(request)
-    return redirect('/')
+# View Bill
+def view_bill(request, id):
+    bill = Order.objects.get(id=id)
+    item = []
+    for i in bill.order_Items:
+        item.append(i)
+    itemLen = []
+    for i in bill.itemLen:
+        itemLen.append(i)
+    price = []
+    for i in bill.price:
+        price.append(i)
+    data = zip(item , itemLen, price)
+    return render(request, 'view_bill.html', context={'bill': bill , 'data' : data})
 
 
-def blog(request):
-    mypost = Blogpost.objects.all()
-    return render(request, 'blog.html', {'mypost': mypost})
-
-
-def blogpost(request, id):
-    post = Blogpost.objects.filter(post_id=id)[0]
-    return render(request, 'blogpost.html', {'post': post})
-
-
+# Add Product in Wishlist
 def add_wishlist(request):
     pid = request.GET['product']
     product = Product.objects.get(id=pid)
@@ -174,17 +168,20 @@ def add_wishlist(request):
     return JsonResponse(data)
 
 
+# Remove Product from Wishlist
 def removeFromWishlist(request, id):
     i = Wishlist.objects.filter(product=id)
     i.delete()
-    return redirect('/my_wishlist')
+    return redirect('/cart')
 
 
+# Wishlist Page
 def my_wishlist(request):
     orders = Wishlist.objects.filter(user=request.user).order_by('-id')
     return render(request, 'wishlist.html', {'orders': orders})
 
 
+# Add Product in Cart
 def add_cart(request):
     pid = request.GET['product']
     item = request.GET['cartItem']
@@ -211,12 +208,14 @@ def add_cart(request):
     return JsonResponse(data)
 
 
+# Remove Product from Wishlist
 def removeFromCart(request, id):
     i = Cart.objects.filter(product=id)
     i.delete()
     return redirect('/cart')
 
 
+# Cart Page
 def cart(request):
     orders = Cart.objects.filter(user=request.user).order_by('-id')
     totalPrice = 0
@@ -224,3 +223,141 @@ def cart(request):
         new = i.product.price * i.itemLen
         totalPrice = int(totalPrice) + int(new)
     return render(request, 'cart.html', context={'orders': orders, 'totalPrice': totalPrice})
+
+
+# Show Cart Total in Header
+def check_cart_price(request):
+    price = Cart.objects.filter(user=request.user)
+    sum = 0
+    for i in price:
+        sum = sum + int(i.product.price * i.itemLen)
+    data = {
+        'sum': sum
+    }
+    return JsonResponse(data)
+
+
+def checkout(request):
+    if request.method == "POST":
+        order_Items = Cart.objects.filter(user=request.user)
+        items = []
+        price = []
+        itemLen = []
+        for i in order_Items:
+            items.append(i.product.title)
+            price.append(i.product.price)
+            itemLen.append(i.itemLen)
+        amount = 0
+        for i in order_Items:
+            new = i.product.price * i.itemLen
+            amount = int(amount) + int(new)
+        address1 = request.POST['address1']
+        address1 = request.POST['address1']
+        address2 = request.POST['address2']
+        city = request.POST['city']
+        state = request.POST['state']
+        zip = request.POST['zip']
+        Order.objects.create(user=request.user, order_Items=items, price=price, itemLen=itemLen , amount=amount,
+                             address1=address1, address2=address2, city=city, state=state, zip=zip)
+
+        a = Cart.objects.filter(user=request.user)
+        a.delete()
+        return redirect('/')
+
+    prod = Cart.objects.filter(user=request.user)
+    totalPrice = 0
+    for i in prod:
+        new = i.product.price * i.itemLen
+        totalPrice = int(totalPrice) + int(new)
+    return render(request, 'checkout.html', context={'prod': prod, 'totalPrice': totalPrice})
+
+
+# Blog Page
+def blog(request):
+    mypost = Blogpost.objects.all()
+    return render(request, 'blog.html', {'mypost': mypost})
+
+
+# View Blog Post
+def blogpost(request, id):
+    post = Blogpost.objects.filter(post_id=id)[0]
+    return render(request, 'blogpost.html', {'post': post})
+
+
+# Subscribe Email
+def subscribe(request):
+    if request.method == "POST":
+        subscribe_email = request.POST['subscribe_email']
+
+        a = Subscribe.objects.filter(email=subscribe_email)
+        if len(a) == 0:
+            Subscribe.objects.create(email=subscribe_email)
+            messages.success(
+                request, 'Subscribe Email Added successfully saved.')
+            return redirect('/')
+        else:
+            return redirect('/')
+
+
+def place_order(request):
+    if request.method == "POST":
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        address1 = request.POST['address1']
+        address2 = request.POST['address2']
+        city = request.POST['city']
+        state = request.POST['state']
+        zip = request.POST['zip']
+
+        return redirect('/')
+
+
+# Search Data
+def search(request):
+    if request.method == "POST":
+        q = request.POST['q']
+        prod = Product.objects.filter(Q(title__contains=q) | Q(
+            desc__contains=q) | Q(shortDesc__contains=q) | Q(category__contains=q))
+        return render(request, 'search.html', context={'q': q, 'prod': prod})
+
+
+# Create Account
+def handle_signup(request):
+    if request.method == 'POST':
+        usrname = request.POST['usrname']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        passwd = request.POST['pass']
+
+        user = User.objects.create_user(
+            username=usrname, first_name=fname, last_name=lname, email=email, password=passwd)
+        user.save()
+
+        user = authenticate(username=usrname, password=passwd)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+
+    return redirect('/my_account')
+
+
+# Login Account
+def handle_login(request):
+    if request.method == "POST":
+        usrname = request.POST['usrname']
+        passwd = request.POST['password']
+
+    user = authenticate(username=usrname, password=passwd)
+
+    if user is not None:
+        login(request, user)
+        return redirect('/')
+    return redirect('/my_account')
+
+
+# Logout Function
+def handle_logout(request):
+    logout(request)
+    return redirect('/')

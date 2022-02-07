@@ -1,6 +1,8 @@
+from statistics import mode
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
+import jsonfield
 
 
 class Address(models.Model):
@@ -56,3 +58,29 @@ class Blogpost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Subscribe(models.Model):
+    email = models.EmailField(max_length=254)
+
+    def __str__(self):
+        return self.email
+
+
+class Order(models.Model):
+    id = models.IntegerField(primary_key=True, serialize=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    order_Items = jsonfield.JSONField()
+    itemLen = jsonfield.JSONField()
+    price = jsonfield.JSONField()
+    amount = models.IntegerField(default=0)
+    address1 = models.CharField(max_length=200)
+    address2 = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip = models.CharField(max_length=15)
+    payment_method = models.CharField(max_length=15, default="COD")
+    date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return f"ID : {self.id} | Items : {self.order_Items}"

@@ -1,0 +1,36 @@
+.compare table tr:first-child td {
+    border: none !important;
+}
+
+.compare table td {
+    padding: 5px 0px;
+    border: 1px solid #e7e7e7;
+    border-top-color: #eaeaea;
+    border-spacing: 0;
+}
+
+.compare td {
+    width: 200px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.compare table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.compare .heading {
+    font-weight: bold;
+    color: #2a3e55;
+}
+
+.compare .price {
+    color: #B12704!important;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.compare .desc {
+    font-size: .7rem;
+    padding: 10px;
+}

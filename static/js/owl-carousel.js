@@ -7,7 +7,7 @@ $('.owl-product').owlCarousel({
     dots: false,
 });
 $('.owl-company-logo').owlCarousel({
-    margin: 10,
+    margin: 35,
     loop: true,
     dots: false,
     nav: true,
@@ -18,8 +18,15 @@ $('.owl-product-new').owlCarousel({
     nav: true,
     items: 2,
 })
+$('.owl-product-new2').owlCarousel({
+    dots: false,
+    nav: true,
+    items: 4,
+    loop: true,
+})
 $('.owl-carousel-cart-page').owlCarousel({
     dots: false,
     nav: true,
-    items: 3,
+    items: 4,
+    loop: true,
 })

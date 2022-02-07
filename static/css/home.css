@@ -126,7 +126,8 @@
     background: url(../img/bg/bg_hotnew.jpg);
 }
 
-.carousel-new-items .product {
+.carousel-new-items .product,
+.carousel-new-items2 .product {
     width: 260px;
     height: 350px;
     display: flex;
@@ -135,31 +136,37 @@
     background: white;
 }
 
-.carousel-new-items .product .img img {
+.carousel-new-items .product .img img,
+.carousel-new-items2 .product .img img {
     width: 250px;
 }
 
-.carousel-new-items .star {
+.carousel-new-items .star,
+.carousel-new-items2 .star {
     font-size: 12px;
 }
 
-.carousel-new-items .cart-btn {
+.carousel-new-items .cart-btn,
+.carousel-new-items2 .cart-btn {
     background: #dfdfdf;
     padding: 5px 8px;
     font-size: 13px;
     color: #444;
 }
 
-.carousel-new-items .cart-btn {
+.carousel-new-items .cart-btn,
+.carousel-new-items2 .cart-btn {
     background: #2a3e55;
     color: #fff;
 }
 
-.carousel-new-items .img {
+.carousel-new-items .img,
+.carousel-new-items2 .img {
     overflow: hidden;
 }
 
-.carousel-new-items .compare-wishlist {
+.carousel-new-items .compare-wishlist,
+.carousel-new-items2 .compare-wishlist {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -171,15 +178,18 @@
     transition: 0.5s all ease;
 }
 
-.carousel-new-items .compare-wishlist a {
+.carousel-new-items .compare-wishlist a,
+.carousel-new-items2 .compare-wishlist a {
     color: #444;
     font-size: 13px;
 }
 
-.carousel-new-items .heading {
+.carousel-new-items .heading,
+.carousel-new-items2 .heading {
     font-weight: 800 !important;
 }
 
-.carousel-new-items .product:hover .compare-wishlist {
+.carousel-new-items .product:hover .compare-wishlist,
+.carousel-new-items2 .product:hover .compare-wishlist {
     top: -50px;
 }

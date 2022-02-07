@@ -8,7 +8,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
-            <li class="breadcrumb-item"><a href="#">{{prod.category}}</a></li>
+            <li class="breadcrumb-item"><a href="/product_category/{{prod.category}}">{{prod.category}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{prod.title}}</li>
         </ol>
     </nav>
@@ -52,7 +52,7 @@
                 <button class="btn prod-btn btn-whishlist whishlist-btn" disabled><i class="far fa-heart"></i> Already
                     in Wishlist</button>
                 {% else %}
-                <button class=" btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
+                <button class="btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
                         class="far fa-heart"></i> Wishlist</button>
                 {% endif %}
                 <button class="btn prod-btn btn-compare d-flex align-items-center">
@@ -90,168 +90,26 @@
     <p class="heading h4">Related Products</p>
     <hr>
     <div class="owl-carousel owl-carousel-cart-page owl-theme">
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
+        {% for i in releted %}
+        <div class="item">
+            <div class="border rounded product">
+                <div class="img">
+                    <img src="/media/{{i.images1}}" alt="">
+                    <div class="compare-wishlist">
+                        <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                class="far fa-heart"></i> Wishlist</a>
                     </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
+                </div>
+                <div class="container">
+                    <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                    <div class="container d-flex justify-content-between p-0">
+                        <p class="font-weight-bold text-warning">₹ {{i.price}} /-</p>
+                        <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item" style="width:250px">
-            <div class="col m-0">
-                <div class="border rounded product">
-                    <div class="img">
-                        <img src="{% static 'img/product/laptop4.png' %}" alt="">
-                        <div class="compare-wishlist">
-                            <a href=""><i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
-                                    class="far fa-heart"></i> Wishlist</a>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <p class="font-weight-bold m-0 mb-2">Ayous Magazine Rack</p>
-                        <p class="star m-0 mb-2">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </p>
-                        <div class="container d-flex justify-content-between p-0">
-                            <p class="font-weight-bold text-warning">$120.00</p>
-                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 

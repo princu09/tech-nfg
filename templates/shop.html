@@ -5,7 +5,12 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb container">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
+        {% if "product_category" in request.path %}
+        <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{category}}</li>
+        {% else %}
         <li class="breadcrumb-item active" aria-current="page">Shop</li>
+        {% endif %}
     </ol>
 </nav>
 
@@ -35,8 +40,10 @@
                 <div class="img">
                     <img src="/media/{{i.images1}}" alt="">
                     <div class="compare-wishlist">
-                        <a href="">
-                            <i class="far fa-reply-all"></i> Compare </a> | <a href=""><i class="far fa-heart"></i>
+                        <a href="#" class="compare-btn" data-product="{{i.id}}">
+                            <i class="far fa-reply-all"></i> Compare </a> | <a
+                            class="whishlist-btn prod-btn btn-whishlist" href="#" data-product="{{i.id}}"><i
+                                class="far fa-heart"></i>
                             Wishlist
                         </a>
                     </div>
@@ -56,23 +63,5 @@
         {% endfor %}
 
     </div>
-    <hr>
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item border-0">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item border-0"><a class="page-link" href="#">1</a></li>
-            <li class="page-item border-0"><a class="page-link" href="#">2</a></li>
-            <li class="page-item border-0"><a class="page-link" href="#">3</a></li>
-            <li class="page-item border-0">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 </div>
 {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{q}}</li>
+       </ol>
+</nav>
+
+<div class="container shop-page">
+       <p class="h4 accent-color">Search Query : <q>{{q}}</q> </p>
+       <div class="row my-4">
+              {% for i in prod %}
+              <div class="col-md-3 mb-3">
+                     <div class="border rounded product">
+                            <div class="img">
+                                   <img src="/media/{{i.images1}}" alt="">
+                                   <div class="compare-wishlist">
+                                          <a href="">
+                                                 <i class="far fa-reply-all"></i> Compare </a> | <a href=""><i
+                                                        class="far fa-heart"></i>
+                                                 Wishlist
+                                          </a>
+                                   </div>
+                            </div>
+                            <div class="container">
+                                   <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                                   <div class="container d-flex justify-content-between p-0">
+                                          <p class="font-weight-bold text-warning">₹ {{i.price}} /-</p>
+                                          <a href="/single_product/{{i.id}}">
+                                                 <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                                          </a>
+                                   </div>
+                            </div>
+                     </div>
+              </div>
+              {% endfor %}
+       </div>
+</div>
+
+{% endblock %}

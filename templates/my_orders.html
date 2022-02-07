@@ -1,0 +1,52 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Orders</li>
+       </ol>
+</nav>
+
+<div class="container mb-4">
+
+       <table id="table_id" class="display text-center">
+              <thead>
+                     <tr>
+                            <th>ID</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Address</th>
+                            <th>Payment Method</th>
+                            <th>View Bill</th>
+                     </tr>
+              </thead>
+              <tbody>
+                     {% for i in orders %}
+                     <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.order_Items}}</td>
+                            <td>{{i.amount}}</td>
+                            <td>
+                                   {{i.address1}} {{i.address2}}, {{i.city}}, {{i.state}}, {{i.zip}}
+                            </td>
+                            <td>
+                                   {{i.payment_method}}
+                            </td>
+                            <td>
+                                   <a href="/view_bill/{{i.id}}" class="text-dark"><i class="fas fa-eye"></i></a>
+                            </td>
+                     </tr>
+                     {% endfor %}
+              </tbody>
+       </table>
+</div>
+
+<script>
+       $(document).ready(function () {
+              $('#table_id').DataTable();
+       });
+</script>
+
+{% endblock %}

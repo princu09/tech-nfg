@@ -1,0 +1,79 @@
+{% extends 'include/basic.html' %}
+{% load static %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+       </ol>
+</nav>
+
+<div class="container checkout my-5">
+       <div class="row">
+              <div class="col-md-6">
+                     <p class="h5 accent-color font-weight-bold mb-4">Billing Details</p>
+                     <form action="/checkout" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                   <div class="form-group col-md-6">
+                                          <label for="">First Name</label>
+                                          <input type="text" class="form-control" name="fname" required>
+                                   </div>
+                                   <div class="form-group col-md-6">
+                                          <label for="">Last Name</label>
+                                          <input type="text" class="form-control" name="lname" required>
+                                   </div>
+                            </div>
+                            <div class="form-group">
+                                   <label for="">Address</label>
+                                   <input type="text" class="form-control" placeholder="1234 Main St" name="address1"
+                                          required>
+                            </div>
+                            <div class="form-group">
+                                   <label for="">Address 2</label>
+                                   <input type="text" class="form-control" placeholder="Apartment, studio, or floor"
+                                          name="address2" required>
+                            </div>
+                            <div class="form-row">
+                                   <div class="form-group col-md-6">
+                                          <label for="">City</label>
+                                          <input type="text" class="form-control" name="city" required>
+                                   </div>
+                                   <div class="form-group col-md-4">
+                                          <label for="">State</label>
+                                          <input type="text" class="form-control" name="state" required>
+                                   </div>
+                                   <div class="form-group col-md-2">
+                                          <label for="">Zip</label>
+                                          <input type="text" class="form-control" name="zip" required>
+                                   </div>
+                            </div>
+                            <button class="btn btn-warning btn-block">Place Order</button>
+                     </form>
+              </div>
+              <div class="col-md-6">
+                     <p class="h5 accent-color font-weight-bold mb-4">Your Order</p>
+                     <table class="border">
+                            <thead>
+                                   <td class="border p-1 px-2 font-weight-bold" width="300px">Product</td>
+                                   <td class="border p-1 px-2 font-weight-bold" width="300px">Total</td>
+                            </thead>
+                            {% for i in prod %}
+                            <tr>
+                                   <td class="border p-2" width="300px">{{i.product.title}} x {{i.itemLen}}</td>
+                                   <td class="border px-2" width="300px">{% widthratio i.product.price 1 i.itemLen %}
+                                   </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                   <td class="border p-1 px-2 font-weight-bold" width="300px">Total</td>
+                                   <td class="border px-2" width="300px">
+                                          {{totalPrice}}
+                                   </td>
+                            </tr>
+                     </table>
+              </div>
+       </div>
+</div>
+{% endblock %}
