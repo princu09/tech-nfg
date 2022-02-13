@@ -15,19 +15,18 @@
               <thead>
                      <tr>
                             <th>ID</th>
-                            <th>Items</th>
-                            <th>Total</th>
+                            <th>Date</th>
                             <th>Address</th>
                             <th>Payment Method</th>
                             <th>View Bill</th>
+                            <th>Email Invoice</th>
                      </tr>
               </thead>
               <tbody>
                      {% for i in orders %}
                      <tr>
-                            <td>{{i.id}}</td>
-                            <td>{{i.order_Items}}</td>
-                            <td>{{i.amount}}</td>
+                            <td>#{{i.id}}</td>
+                            <td>{{i.date}}</td>
                             <td>
                                    {{i.address1}} {{i.address2}}, {{i.city}}, {{i.state}}, {{i.zip}}
                             </td>
@@ -36,6 +35,9 @@
                             </td>
                             <td>
                                    <a href="/view_bill/{{i.id}}" class="text-dark"><i class="fas fa-eye"></i></a>
+                            </td>
+                            <td>
+                                   <a href="/view_bill/{{i.id}}" class="text-dark"><i class="fas fa-envelope"></i></a>
                             </td>
                      </tr>
                      {% endfor %}

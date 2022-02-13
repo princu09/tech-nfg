@@ -1,8 +1,12 @@
+aiosmtplib==1.1.6
 altgraph==0.17.2
+anyio==3.5.0
 appdirs==1.4.4
+APScheduler==3.6.3
 asgiref==3.4.1
 autopep8==1.5.7
 beautifulsoup4==4.10.0
+cachetools==4.2.2
 certifi==2021.10.8
 cffi==1.14.6
 charset-normalizer==2.0.7
@@ -29,6 +33,9 @@ filelock==3.0.12
 Flask==2.0.2
 gitdb==4.0.9
 GitPython==3.1.24
+h11==0.12.0
+httpcore==0.13.7
+httpx==0.19.0
 idna==3.3
 imageio==2.10.3
 imageio-ffmpeg==0.4.5
@@ -202,6 +209,8 @@ pyparsing==3.0.0
 PyPrind==2.11.3
 pySmartDL==1.3.4
 python-dateutil==2.8.1
+python-telegram-bot==13.11
+python-telegram-bot-calendar==1.0.5
 python3-openid==3.2.0
 pyttsx3==2.7
 pytube==11.0.1
@@ -211,10 +220,12 @@ PyYAML==6.0
 rapidfuzz==1.8.2
 requests==2.26.0
 requests-oauthlib==1.3.0
+rfc3986==1.5.0
 rich==10.13.0
 sgmllib3k==1.0.0
 six==1.16.0
 smmap==5.0.0
+sniffio==1.2.0
 social-auth-app-django==3.1.0
 social-auth-core==4.1.0
 soupsieve==2.2.1
@@ -223,8 +234,10 @@ spotdl==3.9.0
 spotipy==2.19.0
 sqlparse==0.4.2
 tablib==3.1.0
+telebot==0.0.4
 termcolor==1.1.0
 toml==0.10.2
+tornado==6.1
 tqdm==4.62.3
 typing-extensions==3.10.0.2
 tzdata==2021.4
@@ -232,6 +245,7 @@ tzlocal==4.0.1
 Unidecode==1.3.2
 urllib3==1.26.7
 uWSGI==2.0.18
+validus==0.3.0
 virtualenv==20.4.7
 websockets==10.0
 Werkzeug==2.0.2

@@ -1,5 +1,7 @@
+from email.utils import format_datetime
 from statistics import mode
 from unicodedata import category
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 import jsonfield
@@ -70,6 +72,7 @@ class Subscribe(models.Model):
 class Order(models.Model):
     id = models.IntegerField(primary_key=True, serialize=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    mobile = models.CharField(max_length=10)
     order_Items = jsonfield.JSONField()
     itemLen = jsonfield.JSONField()
     price = jsonfield.JSONField()
@@ -80,7 +83,7 @@ class Order(models.Model):
     state = models.CharField(max_length=50)
     zip = models.CharField(max_length=15)
     payment_method = models.CharField(max_length=15, default="COD")
-    date = models.DateField(auto_now=True)
+    date = models.DateField(auto_now=True , auto_now_add=False)
 
     def __str__(self):
         return f"ID : {self.id} | Items : {self.order_Items}"
