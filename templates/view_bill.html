@@ -286,9 +286,7 @@
                                                                              {{bill.city}},
                                                                              {{bill.state}}
                                                                       </p>
-                                                                      <p>
-                                                                             jonnydeff@gmail.com
-                                                                      </p>
+                                                                      <p>Email : {{bill.email}} <br> Mobile : {{bill.mobile}}</p>
                                                                </div>
                                                         </div>
                                                  </div>
@@ -334,17 +332,17 @@
                                                  </div>
                                           </div>
 
-                                          <div class="print text-center py-3">
+                                          {% comment %} <div class="print text-center py-3">
                                                  <a class="btn accent-bg-color" id="download">
                                                         <i class="fas fa-print"></i>
                                                         Print Receipt
                                                  </a>
-                                          </div>
+                                          </div> {% endcomment %}
                                    </div>
                             </div>
                      </div>
               </div>
-              <div id="editor"></div>
+              {% comment %} <div id="editor"></div> {% endcomment %}
 
               <!-- Bootstap JS -->
               <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

@@ -19,7 +19,7 @@
                             <th>Address</th>
                             <th>Payment Method</th>
                             <th>View Bill</th>
-                            <th>Email Invoice</th>
+                            {% comment %} <th>Email Invoice</th> {% endcomment %}
                      </tr>
               </thead>
               <tbody>
@@ -36,9 +36,9 @@
                             <td>
                                    <a href="/view_bill/{{i.id}}" class="text-dark"><i class="fas fa-eye"></i></a>
                             </td>
-                            <td>
+                            {% comment %} <td>
                                    <a href="/view_bill/{{i.id}}" class="text-dark"><i class="fas fa-envelope"></i></a>
-                            </td>
+                            </td> {% endcomment %}
                      </tr>
                      {% endfor %}
               </tbody>

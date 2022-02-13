@@ -3,6 +3,7 @@ altgraph==0.17.2
 anyio==3.5.0
 appdirs==1.4.4
 APScheduler==3.6.3
+arabic-reshaper==2.1.3
 asgiref==3.4.1
 autopep8==1.5.7
 beautifulsoup4==4.10.0
@@ -31,9 +32,11 @@ et-xmlfile==1.1.0
 feedparser==6.0.8
 filelock==3.0.12
 Flask==2.0.2
+future==0.18.2
 gitdb==4.0.9
 GitPython==3.1.24
 h11==0.12.0
+html5lib==1.1
 httpcore==0.13.7
 httpx==0.19.0
 idna==3.3
@@ -206,8 +209,10 @@ pyobjc-framework-Virtualization==7.3
 pyobjc-framework-Vision==7.3
 pyobjc-framework-WebKit==7.3
 pyparsing==3.0.0
+PyPDF2==1.26.0
 PyPrind==2.11.3
 pySmartDL==1.3.4
+python-bidi==0.4.2
 python-dateutil==2.8.1
 python-telegram-bot==13.11
 python-telegram-bot-calendar==1.0.5
@@ -218,6 +223,7 @@ pytz==2021.1
 pytz-deprecation-shim==0.1.0.post0
 PyYAML==6.0
 rapidfuzz==1.8.2
+reportlab==3.6.6
 requests==2.26.0
 requests-oauthlib==1.3.0
 rfc3986==1.5.0
@@ -247,10 +253,12 @@ urllib3==1.26.7
 uWSGI==2.0.18
 validus==0.3.0
 virtualenv==20.4.7
+webencodings==0.5.1
 websockets==10.0
 Werkzeug==2.0.2
 wget==3.2
 wikipedia==1.4.0
+xhtml2pdf==0.2.5
 xlrd==2.0.1
 xlwt==1.3.0
 youtube-dl==2021.6.6

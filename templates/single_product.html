@@ -13,11 +13,17 @@
         </ol>
     </nav>
 
+
     <div class="row">
         <div class="col-md-6 pt-3 border d-flex justify-content-center align-items-center product"
             style="width: 635px; height:635px;border-radius:5px">
             <div class="main-img-prod d-flex flex-column justify-content-center align-items-center">
                 <div class="image-gallery-big">
+                    {% if i.badge != "" %}
+                    <div class="sale-badge-single-page" style="background-image:url('{% static 'img/tag.svg' %}')">
+                        {{prod.badge}}
+                    </div>
+                    {% endif %}
                     <img id="imageBox" src="/media/{{prod.images1}}" alt="">
                 </div>
                 <div class="d-flex pt-5 justify-content-center">

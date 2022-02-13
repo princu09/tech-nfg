@@ -5,6 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tech NFG</title>
 
@@ -82,6 +83,9 @@
                 <span class="t-dark">Welcome to Tech NFG !</span>
                 <ul class="nav nav-top">
                     {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link p-0 px-3" href="https://t.me/techNfg_bot" target="_blank"><i class="far fa-file-invoice"></i> Get Invoice on Telegram</a>
+                    </li>
                     <li class="nav-item {% if "cart" in request.path %}active-menu{% endif %}">
                         <a class="nav-link p-0 px-3" href="/cart"><i class="far fa-shopping-bag"></i> Checkout</a>
                     </li>

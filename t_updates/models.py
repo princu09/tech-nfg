@@ -18,6 +18,7 @@ class Address(models.Model):
 
 class Product(models.Model):
     id = models.IntegerField(primary_key=True)
+    badge = models.CharField(max_length=30)
     title = models.CharField(max_length=250)
     desc = models.TextField()
     shortDesc = models.CharField(max_length=200)
@@ -72,6 +73,7 @@ class Subscribe(models.Model):
 class Order(models.Model):
     id = models.IntegerField(primary_key=True, serialize=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254)
     mobile = models.CharField(max_length=10)
     order_Items = jsonfield.JSONField()
     itemLen = jsonfield.JSONField()

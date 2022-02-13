@@ -1,7 +1,7 @@
 .shop-page .product,
 .featured-product .product {
     width: 260px;
-    height: 350px;
+    height: 380px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -65,4 +65,21 @@
 .shop-page .product:hover .compare-wishlist,
 .featured-product .product:hover .compare-wishlist {
     bottom: 20px;
+}
+
+.shop-page .product .sale-badge {
+    width: 100px;
+    color: white;
+    padding-left: 8px;
+    font-size: .7rem;
+}
+
+.sale-badge-single-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    color: white;
+    padding-left: 8px;
+    font-size: .9rem;
 }

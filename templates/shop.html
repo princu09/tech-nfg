@@ -37,6 +37,11 @@
         {% for i in prod %}
         <div class="col-md-3 mb-3">
             <div class="border rounded product">
+                {% if i.badge != "" %}
+                <div class="sale-badge" style="background-image:url('{% static 'img/tag.svg' %}')">
+                    {{i.badge}}
+                </div>
+                {% endif %}
                 <div class="img">
                     <img src="/media/{{i.images1}}" alt="">
                     <div class="compare-wishlist">
