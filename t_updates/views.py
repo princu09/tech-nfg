@@ -56,34 +56,7 @@ def compare_product(request, prod1, prod2):
 
 # Offers & Promocode Page Function
 def offers_promocode(request):
-    url = "https://www.grabon.in/flight-coupons/"
-
-    # Make a GET request to fetch the raw HTML content
-    html_content = requests.get(url).text
-
-    # Parse the html content
-    soup = BeautifulSoup(html_content, "html")
-
-    allData = soup.findAll(class_='go-cpn-show')
-
-    disData = []
-    titleData = []
-    descData = []
-
-    for i in allData:
-        for a in i.findAll("span", class_=[]):
-            disData.append(a.text)
-        for b in i.findAll("span", class_=['txt']):
-            disData.append(b.text)
-        title = i.findAll("p", class_=[])
-        for c in i.findAll("span", class_=['per']):
-            disData.append(b.text)
-        for d in i.findAll("p", class_=[]):
-            titleData.append(d.text)
-        desc = i.findAll("span", class_=['visible-lg'])
-        for e in desc:
-            descData.append(e.text)
-    data = zip(disData, titleData, descData)
+    data = Product.objects.filter(Q(badge__contains="sale"))
     context = {'data': data}
     return render(request, 'offers_promocode.html', context)
 
@@ -304,6 +277,7 @@ def subscribe(request):
             return redirect('/')
 
 
+# Place Order
 def place_order(request):
     if request.method == "POST":
         fname = request.POST['fname']

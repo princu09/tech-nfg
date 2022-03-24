@@ -102,7 +102,7 @@ def inline_calendar_handler(update, context):
 
 def main():
     updater = Updater(
-        "5233843479:AAFjubszLgvvhNAlbZljQL6-HymJUbYTJwo", use_context=True)
+        "5233843479:AAGog_tTwYIVN5IffIRQnvoEPiuaqZYYJdY", use_context=True)
 
     dispatcher: Dispatcher = updater.dispatcher
 

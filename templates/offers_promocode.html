@@ -1,25 +1,40 @@
 {% extends './include/basic.html' %}
-
+{% load static %}
 {% block body %}
 
-<div class="container">
+<div class="container shop-page my-5">
     <div class="row">
         {% for i in data %}
-        <div class="col-md-4">
-            <div class="card m-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="container">
-                            <h5 class="card-title font-weight-bold">{{i.0}}</h5>
-                            <p class="card-text text-secondary">{{i.1}}</p>
-                            <button class="btn btn-light">
-                                <i class="fas fa-badge-percent"></i> <span onclick="copyTxt()">{{i.2}}</span>
-                            </button>
-                        </div>
+        <div class="col-md-3 mb-3">
+            <div class="border rounded product">
+                {% if i.badge != "" %}
+                <div class="sale-badge" style="background-image:url('{% static 'img/tag.svg' %}')">
+                    {{i.badge}}
+                </div>
+                {% endif %}
+                <div class="img">
+                    <img src="/media/{{i.images1}}" alt="">
+                    <div class="compare-wishlist">
+                        <a href="#" class="compare-btn" data-product="{{i.id}}">
+                            <i class="far fa-reply-all"></i> Compare </a> | <a
+                            class="whishlist-btn prod-btn btn-whishlist" href="#" data-product="{{i.id}}"><i
+                                class="far fa-heart"></i>
+                            Wishlist
+                        </a>
+                    </div>
+                </div>
+                <div class="container">
+                    <p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+                    <div class="container d-flex justify-content-between p-0">
+                        <p class="font-weight-bold text-warning">₹ {{i.price}} /-</p>
+                        <a href="/single_product/{{i.id}}">
+                            <p class="btn cart-btn"><i class="far fa-shopping-cart"></i></p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
         {% endfor %}
     </div>
 </div>
